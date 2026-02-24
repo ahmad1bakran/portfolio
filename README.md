@@ -1,24 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ahmad Bakran - Portfolio
+
+A modern, bilingual (Arabic/English) portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🌐 **Bilingual Support**: Full Arabic and English language support with RTL/LTR layout switching
+- 🎨 **Modern Design**: Creative, gradient-based design with smooth animations
+- 📱 **Fully Responsive**: Optimized for all device sizes
+- ⚡ **Performance**: Built with Next.js 16 for optimal performance
+- 🎯 **Complete Sections**: About, Skills, Experience, Achievements, Projects, and Contact
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding Your CV
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To enable the CV download button, place your CV PDF file in the `public` folder and name it `cv.pdf`:
+
+```
+public/cv.pdf
+```
+
+The download button will automatically work once the file is in place.
 
 ## Learn More
 
