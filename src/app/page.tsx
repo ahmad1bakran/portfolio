@@ -3,13 +3,12 @@
 import { useLanguage } from "./components/LanguageContext";
 import { portfolioData } from "./lib/data";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Link from "next/link";
 import {
   Github,
   Linkedin,
   Mail,
   Globe,
-  Code2,
   Download,
   MapPin,
   Phone,
@@ -19,8 +18,11 @@ import {
   Sparkles,
   ArrowDown,
   ExternalLink,
+  ArrowRight,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import { SkillIcon } from "./components/SkillIcon";
 
 const scrollReveal = {
   hidden: { opacity: 0, y: 24 },
@@ -34,41 +36,8 @@ const scrollReveal = {
 const viewportConfig = { once: true, margin: "-80px" };
 
 export default function Home() {
-  const { lang, toggleLang, dir } = useLanguage();
+  const { lang } = useLanguage();
   const t = portfolioData[lang];
-  const [activeSection, setActiveSection] = useState("hero");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        "hero",
-        "about",
-        "skills",
-        "experience",
-        "achievements",
-        "projects",
-        "contact",
-      ];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -85,46 +54,7 @@ export default function Home() {
         <div className="absolute bottom-1/4 inset-e-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl" />
       </div>
 
-      {/* Frosted glass navbar — full width, minimal, strong backdrop blur */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 w-full min-w-full border-b border-white/10 bg-black/70 backdrop-blur-2xl"
-        aria-label="Main"
-      >
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4">
-          <motion.button
-            initial={{ opacity: 0, x: dir === "ltr" ? -12 : 12 }}
-            animate={{ opacity: 1, x: 0 }}
-            onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-2 text-gray-100 font-semibold tracking-tight hover:opacity-80 transition-opacity"
-          >
-            <Code2 className="w-5 h-5 text-gray-400" aria-hidden />
-            <span>{t.hero.name.split(" ")[0]}</span>
-          </motion.button>
-
-          <div className="hidden md:flex items-center gap-1">
-            {Object.entries(t.nav).map(([key]) => (
-              <button
-                key={key}
-                onClick={() => scrollToSection(key === "about" ? "about" : key)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  activeSection === key
-                    ? "text-gray-100 bg-white/10"
-                    : "text-gray-500 hover:text-gray-300"
-                }`}
-              >
-                {t.nav[key as keyof typeof t.nav]}
-              </button>
-            ))}
-          </div>
-
-          <button
-            onClick={toggleLang}
-            className="text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
-          >
-            {lang === "en" ? "عربي" : "English"}
-          </button>
-        </div>
-      </nav>
+      <Nav />
 
       {/* Hero — full viewport, massive type, cinematic spacing */}
       <section
@@ -148,7 +78,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.05] text-gray-100"
           >
-            <span className="block">{t.hero.name.split(" ")[0]}</span>
+            <span className="block">{t.hero.name}</span>
             <span className="block bg-gradient-to-e from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
               {t.hero.name.split(" ")[1]}
             </span>
@@ -225,7 +155,7 @@ export default function Home() {
               <MapPin className="w-4 h-4" aria-hidden />
               {t.hero.location}
             </span>
-            <span className="inline-flex items-center gap-2">
+            <span className="inline-flex items-center gap-2" dir="ltr">
               <Phone className="w-4 h-4" aria-hidden />
               {t.hero.phone}
             </span>
@@ -235,13 +165,20 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, repeat: Infinity, repeatType: "reverse", duration: 2 }}
+          transition={{
+            delay: 1.2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 2,
+          }}
           className="absolute bottom-12 inset-s-1/2 -translate-x-1/2"
         >
           <button
             onClick={() => scrollToSection("about")}
             className="p-3 rounded-full border border-white/10 text-gray-500 hover:text-gray-300 hover:border-white/20 transition-colors"
-            aria-label={lang === "en" ? "Scroll to about" : "التمرير إلى النبذة"}
+            aria-label={
+              lang === "en" ? "Scroll to about" : "التمرير إلى النبذة"
+            }
           >
             <ArrowDown className="w-5 h-5 animate-bounce" aria-hidden />
           </button>
@@ -288,7 +225,10 @@ export default function Home() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 rounded-2xl bg-white/5">
-                  <GraduationCap className="w-6 h-6 text-emerald-400/80" aria-hidden />
+                  <GraduationCap
+                    className="w-6 h-6 text-emerald-400/80"
+                    aria-hidden
+                  />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-100">
                   {t.about.education.title}
@@ -343,8 +283,9 @@ export default function Home() {
                   {category.items.map((item, itemIdx) => (
                     <span
                       key={itemIdx}
-                      className="px-4 py-2 rounded-xl text-sm text-gray-400 bg-white/4 border border-white/6"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-400 bg-white/4 border border-white/6"
                     >
+                      <SkillIcon name={item} className="w-4 h-4 shrink-0 text-gray-500" />
                       {item}
                     </span>
                   ))}
@@ -436,7 +377,9 @@ export default function Home() {
                   <Award className="w-5 h-5 text-cyan-400/80" aria-hidden />
                   {item.title}
                 </h3>
-                <p className="text-gray-500 leading-relaxed">{item.description}</p>
+                <p className="text-gray-500 leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -466,18 +409,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects — full-width feature blocks, alternating layout, RTL-safe */}
+      {/* Projects — teaser with link to full projects page */}
       <section
         id="projects"
-        className="relative py-32 px-6 sm:px-8 lg:px-12"
+        className="relative min-h-screen flex items-center justify-center py-32 px-6 sm:px-8 lg:px-12"
       >
-        <div className="max-w-6xl mx-auto w-full mb-24">
+        <div className="max-w-3xl mx-auto w-full text-center">
           <motion.div
             variants={scrollReveal}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="flex items-center gap-4"
+            className="flex items-center justify-center gap-4 mb-10"
           >
             <Globe className="w-8 h-8 text-gray-500" aria-hidden />
             <div className="h-px w-16 bg-gradient-to-e from-emerald-500/60 to-cyan-500/60 rounded-full" />
@@ -485,65 +428,31 @@ export default function Home() {
               {t.projects.title}
             </h2>
           </motion.div>
-        </div>
-
-        <div className="space-y-0">
-          {t.projects.items.map((project, idx) => {
-            const isAlternate = idx % 2 === 1;
-            return (
-              <motion.div
-                key={idx}
-                variants={scrollReveal}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportConfig}
-                transition={{ delay: 0.1 }}
-                className={`min-h-screen flex flex-col md:flex-row items-center gap-12 lg:gap-20 py-24 lg:py-32 px-0 ${
-                  isAlternate ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="flex-1 w-full max-w-2xl mx-auto md:mx-0 text-start pe-0 md:pe-12 lg:pe-16 order-2 md:order-1">
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-100 mb-4">
-                    {project.title}
-                  </h3>
-                  <p className="text-lg text-gray-500 leading-relaxed mb-6">
-                    {project.desc}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-4 py-2 rounded-full text-sm text-gray-400 bg-white/4 border border-white/6"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div
-                  className={`flex-1 w-full max-w-2xl mx-auto md:mx-0 order-1 md:order-2 ${
-                    isAlternate ? "md:ps-0 md:pe-12 lg:pe-16" : "md:ps-12 lg:ps-16"
-                  }`}
-                >
-                  <div className="relative aspect-4/3 rounded-3xl overflow-hidden bg-white/3 border border-white/6">
-                    {project.image ? (
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Globe className="w-20 h-20 text-gray-600" aria-hidden />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          <motion.p
+            variants={scrollReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="text-xl text-gray-500 leading-relaxed mb-12"
+          >
+            {lang === "en"
+              ? "A selection of web and mobile projects I've built."
+              : "مجموعة من مشاريع الويب والموبايل التي قمت ببنائها."}
+          </motion.p>
+          <motion.div
+            variants={scrollReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gray-100 text-gray-900 font-medium hover:bg-gray-200 transition-colors"
+            >
+              <span>{t.projects.viewAll}</span>
+              <ArrowRight className="w-5 h-5" aria-hidden />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -586,6 +495,7 @@ export default function Home() {
               <span>{t.contact.email}</span>
             </a>
             <a
+              dir="ltr"
               href="tel:+96393870119"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-gray-300 font-medium hover:bg-white/5 hover:text-gray-100 transition-colors"
             >
@@ -622,15 +532,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 sm:px-8 lg:px-12 border-t border-white/6">
-        <div className="max-w-6xl mx-auto w-full text-center text-sm text-gray-500">
-          <p>
-            © {new Date().getFullYear()} {t.hero.name}.{" "}
-            {lang === "en" ? "All rights reserved." : "جميع الحقوق محفوظة."}
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

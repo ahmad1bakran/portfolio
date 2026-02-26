@@ -6,10 +6,10 @@ export const portfolioData = {
   en: {
     nav: {
       about: "About",
-      experience: "Experience",
-      projects: "Projects",
       skills: "Skills",
+      experience: "Experience",
       achievements: "Achievements",
+      projects: "Projects",
       contact: "Contact",
     },
     hero: {
@@ -113,6 +113,7 @@ export const portfolioData = {
     },
     projects: {
       title: "Featured Projects",
+      viewAll: "View all projects",
       items: [
         {
           title: "Martyrs Documentation Platform",
@@ -123,37 +124,37 @@ export const portfolioData = {
         {
           title: "E-Commerce Mobile Application",
           desc: "A full-featured e-commerce mobile app with product listing, cart management, authentication, and order tracking. Focused on smooth UX with optimized loading pages and reusable components.",
-          tags: ["React Native", "Tailwind"],
+          tags: ["React Native", "Expo", "Tailwind", "TypeScript"],
           image: "/projects/ecommerce-app.png",
         },
         {
           title: "Real Estate Admin Dashboard",
           desc: "A comprehensive control panel for a real estate company to manage properties and client interactions.",
-          tags: ["React.js", "Tailwind CSS"],
-          image: "/projects/real-estate-dashboard.jpg",
+          tags: ["Next.js", "Tailwind CSS", "Chadcn/UI"],
+          image: "/projects/real-estate-dashboard.png",
         },
         {
           title: "AI-Powered Educational Platform",
           desc: "Web-based education support platform integrating AI tools to assist students with learning, content generation, and problem-solving. Implemented responsive layouts, dynamic dashboards, and performance-friendly loading states.",
-          tags: ["Next.js", "AI Integration"],
+          tags: ["Next.js", "TypeScript", "AI Integration"],
           image: "/projects/educational-platform.jpg",
         },
         {
           title: "Educational Center App",
           desc: "A dedicated mobile application for an educational center to manage student resources and schedules.",
-          tags: ["React Native", "TypeScript"],
-          image: "/projects/educational-center-app.png",
+          tags: ["React Native", "Expo", "TypeScript"],
+          image: "/projects/educational-center-app5.jpg",
         },
         {
           title: "Digital Payments Landing Page & Dashboard",
           desc: "Landing page and custom dashboard for purchasing digital cards, numbers, and managing electronic payments.",
-          tags: ["Next.js", "UI/UX"],
+          tags: ["Next.js", "UI/UX", "Chadcn/UI"],
           image: "/projects/digital-payments.jpg",
         },
         {
           title: "Recruitment Platform Dashboard",
           desc: "A centralized admin panel for managing job postings and hiring workflows.",
-          tags: ["React.js", "Bootstrap"],
+          tags: ["React.js", "Tailwind CSS"],
           image: "/projects/recruitment-dashboard.png",
         },
         {
@@ -165,7 +166,7 @@ export const portfolioData = {
         {
           title: "Landing Page Template",
           desc: "A modern, responsive landing page template with clean sections, clear CTAs, and easy customization. Built for fast load times and conversion-focused design.",
-          tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+          tags: ["HTML5", "CSS", "JS"],
           image: "/projects/landing-page-template.png",
         },
       ],
@@ -182,10 +183,10 @@ export const portfolioData = {
   ar: {
     nav: {
       about: "نبذة عني",
-      experience: "الخبرات",
-      projects: "المشاريع",
       skills: "المهارات",
+      experience: "الخبرات",
       achievements: "الإنجازات",
+      projects: "المشاريع",
       contact: "تواصل معي",
     },
     hero: {
@@ -289,6 +290,7 @@ export const portfolioData = {
     },
     projects: {
       title: "أبرز المشاريع",
+      viewAll: "عرض جميع المشاريع",
       items: [
         {
           title: "موقع توثيق الشهداء",
@@ -299,38 +301,38 @@ export const portfolioData = {
         {
           title: "تطبيق تسوق الكتروني",
           desc: "تطبيق تسوق إلكتروني متكامل مع قائمة المنتجات وإدارة السلة والمصادقة وتتبع الطلبات. يركز على تجربة مستخدم سلسة مع صفحات تحميل محسنة ومكونات قابلة لإعادة الاستخدام.",
-          tags: ["React Native", "Tailwind"],
+          tags: ["React Native", "Expo", "Tailwind", "TypeScript"],
           image: "/projects/ecommerce-app.png",
         },
         {
           title: "لوحة تحكم لشركة بيع العقارات",
           desc: "لوحة تحكم شاملة لشركة عقارات لإدارة الممتلكات والتفاعل مع العملاء.",
-          tags: ["React.js", "Tailwind CSS"],
-          image: "/projects/real-estate-dashboard.jpg",
+          tags: ["Next.js", "Tailwind CSS", "Chadcn/UI"],
+          image: "/projects/real-estate-dashboard.png",
         },
         {
           title: "موقع تعليمي مدعوم بالذكاء الاصطناعي",
           desc: "منصة ويب تعليمية تدمج أدوات الذكاء الاصطناعي لمساعدة الطلاب في التعلم وإنشاء المحتوى وحل المشكلات. تنفيذ تخطيطات متجاوبة ولوحات تحكم ديناميكية وحالات تحميل صديقة للأداء.",
-          tags: ["Next.js", "AI Integration"],
+          tags: ["Next.js", "TypeScript", "AI Integration"],
           image: "/projects/educational-platform.jpg",
         },
         {
           title: "تطبيق لمركز تعليمي",
           desc: "تطبيق موبايل مخصص لمركز تعليمي لإدارة الموارد التعليمية وجداول الطلاب.",
-          tags: ["React Native", "TypeScript"],
+          tags: ["React Native", "Expo", "TypeScript"],
           image: "/projects/educational-center-app.png",
         },
         {
           title:
             "صفحة هبوط لتطبيق لشراء البطاقات والارقام والدفع الالكتروني ولوحة تحكم",
           desc: "صفحة هبوط ولوحة تحكم مخصصة لشراء البطاقات والأرقام وإدارة المدفوعات الإلكترونية.",
-          tags: ["Next.js", "UI/UX"],
+          tags: ["Next.js", "UI/UX", "Chadcn/UI"],
           image: "/projects/digital-payments.jpg",
         },
         {
           title: "لوحة تحكم لمنصة توظيف",
           desc: "لوحة تحكم مركزية لإدارة الوظائف ومتابعة المتقدمين.",
-          tags: ["React.js", "Bootstrap"],
+          tags: ["React.js", "Tailwind CSS"],
           image: "/projects/recruitment-dashboard.png",
         },
         {
@@ -342,7 +344,7 @@ export const portfolioData = {
         {
           title: "قالب صفحة هبوط",
           desc: "قالب صفحة هبوط حديث ومتجاوب بأقسام واضحة ونداءات إجراء واضحة وسهولة في التخصيص. مبني لأداء تحميل سريع وتصميم يركز على التحويل.",
-          tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+          tags: ["HTML5", "CSS", "JS"],
           image: "/projects/landing-page-template.png",
         },
       ],
