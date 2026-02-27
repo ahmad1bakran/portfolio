@@ -101,8 +101,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const faviconLight = getFaviconPath("/images/logo2.png");
-  const faviconDark = getFaviconPath("/images/logo2.png");
+  const faviconLight = getFaviconPath(".../images/logo2.png");
+  const faviconDark = getFaviconPath(".../images/logo2.png");
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
