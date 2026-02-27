@@ -10,7 +10,7 @@ import { useCallback, useState, useEffect } from "react";
 import Image from "next/image";
 import { getPublicUrl } from "../lib/utils";
 
-const LOGO_SRC = "./images/logo2.png";
+const LOGO_SRC = "/images/logo2.png";
 
 export function NavLogo() {
   const [failed, setFailed] = useState(false);

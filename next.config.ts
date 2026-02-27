@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-// For GitHub Pages project site (e.g. user.github.io/my-portfolio):
-// set NEXT_PUBLIC_BASE_PATH=/my-portfolio
+// For GitHub Pages project site only (e.g. user.github.io/my-portfolio):
+// set NEXT_PUBLIC_BASE_PATH=/my-portfolio (use repo name, NOT /en or /ar)
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const nextConfig: NextConfig = {
