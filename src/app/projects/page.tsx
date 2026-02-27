@@ -2,9 +2,11 @@
 
 import { useLanguage } from "../components/LanguageContext";
 import { portfolioData } from "../lib/data";
+import { getPublicUrl } from "../lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Globe } from "lucide-react";
+import { useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
@@ -18,6 +20,27 @@ const scrollReveal = {
 };
 
 const viewportConfig = { once: true, margin: "-80px" };
+
+function ProjectImage({ src, alt }: { src: string; alt: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Globe className="w-20 h-20 text-gray-600" aria-hidden />
+      </div>
+    );
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-cover"
+      sizes="(max-width: 768px) 100vw, 50vw"
+      onError={() => setFailed(true)}
+    />
+  );
+}
 
 export default function ProjectsPage() {
   const { lang } = useLanguage();
@@ -94,12 +117,9 @@ export default function ProjectsPage() {
                 >
                   <div className="relative aspect-4/3 rounded-3xl overflow-hidden bg-white/3 border border-white/6">
                     {project.image ? (
-                      <Image
-                        src={project.image}
+                      <ProjectImage
+                        src={getPublicUrl(project.image)}
                         alt={project.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">

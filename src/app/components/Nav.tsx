@@ -7,6 +7,27 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { useCallback, useState, useEffect } from "react";
+import Image from "next/image";
+import { getPublicUrl } from "../lib/utils";
+
+const LOGO_SRC = "/images/logo2.png";
+
+function NavLogo() {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return <Code2 className="w-6 h-6 text-gray-400 shrink-0" aria-hidden />;
+  }
+  return (
+    <Image
+      src={getPublicUrl(LOGO_SRC)}
+      alt=""
+      width={32}
+      height={32}
+      className="shrink-0"
+      onError={() => setFailed(true)}
+    />
+  );
+}
 
 export default function Nav() {
   const { lang, toggleLang, dir } = useLanguage();
@@ -15,7 +36,7 @@ export default function Nav() {
   const isProjectsPage = pathname === "/projects";
 
   const [activeSection, setActiveSection] = useState(
-    isProjectsPage ? "projects" : "hero"
+    isProjectsPage ? "projects" : "hero",
   );
 
   useEffect(() => {
@@ -70,7 +91,7 @@ export default function Nav() {
             href="/"
             className="flex items-center gap-2 text-gray-100 font-semibold tracking-tight hover:opacity-80 transition-opacity shrink-0"
           >
-            <Code2 className="w-5 h-5 text-gray-400 shrink-0" aria-hidden />
+            <NavLogo />
             <span className="truncate">{t.hero.name.split(" ")[0]}</span>
           </Link>
         ) : (
@@ -80,7 +101,8 @@ export default function Nav() {
             onClick={() => scrollToSection("hero")}
             className="flex items-center gap-2 text-gray-100 font-semibold tracking-tight hover:opacity-80 transition-opacity shrink-0"
           >
-            <Code2 className="w-5 h-5 text-gray-400 shrink-0" aria-hidden />
+            <NavLogo />
+
             <span className="truncate">{t.hero.name.split(" ")[0]}</span>
           </motion.button>
         )}
@@ -124,9 +146,7 @@ export default function Nav() {
             return (
               <button
                 key={key}
-                onClick={() =>
-                  scrollToSection(key === "about" ? "about" : key)
-                }
+                onClick={() => scrollToSection(key === "about" ? "about" : key)}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-colors shrink-0 ${
                   isActive
                     ? "text-gray-100 bg-white/10"
