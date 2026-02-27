@@ -2,7 +2,6 @@
 
 import { useLanguage } from "../../components/LanguageContext";
 import { portfolioData } from "../../lib/data";
-import { getPublicUrl } from "../../lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Globe } from "lucide-react";
