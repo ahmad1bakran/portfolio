@@ -143,7 +143,7 @@ export const portfolioData = {
           title: "Educational Center App",
           desc: "A dedicated mobile application for an educational center to manage student resources and schedules.",
           tags: ["React Native", "Expo", "TypeScript"],
-          image: "/projects/educational-center-app5.jpg",
+          image: "../projects/educational-center-app5.jpg",
         },
         {
           title: "Digital Payments Landing Page & Dashboard",
@@ -308,7 +308,7 @@ export const portfolioData = {
           title: "لوحة تحكم لشركة بيع العقارات",
           desc: "لوحة تحكم شاملة لشركة عقارات لإدارة الممتلكات والتفاعل مع العملاء.",
           tags: ["Next.js", "Tailwind CSS", "Chadcn/UI"],
-          image: "/projects/real-estate-dashboard.png",
+          image: "../projects/real-estate-dashboard.png",
         },
         {
           title: "موقع تعليمي مدعوم بالذكاء الاصطناعي",
