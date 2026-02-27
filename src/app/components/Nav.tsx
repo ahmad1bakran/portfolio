@@ -92,7 +92,7 @@ export default function Nav() {
             className="flex items-center gap-2 text-gray-100 font-semibold tracking-tight hover:opacity-80 transition-opacity shrink-0"
           >
             <NavLogo />
-            <span className="truncate">{t.hero.name.split(" ")[0]}</span>
+            <span className="truncate">{t.hero.name}</span>
           </Link>
         ) : (
           <motion.button
@@ -103,7 +103,7 @@ export default function Nav() {
           >
             <NavLogo />
 
-            <span className="truncate">{t.hero.name.split(" ")[0]}</span>
+            <span className="truncate">{t.hero.name}</span>
           </motion.button>
         )}
 

@@ -23,7 +23,7 @@ const keywords = [
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://ahmadbakran.dev"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://ahmadbakran.dev",
   ),
   title: {
     default: `${siteName} | ${role}`,
@@ -31,7 +31,9 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: keywords.join(", "),
-  authors: [{ name: siteName, url: "https://linkedin.com/in/ahmad-bakran-80735b226" }],
+  authors: [
+    { name: siteName, url: "https://linkedin.com/in/ahmad-bakran-80735b226" },
+  ],
   creator: siteName,
   openGraph: {
     type: "website",
@@ -74,7 +76,13 @@ const jsonLd = {
     "https://linkedin.com/in/ahmad-bakran-80735b226",
     "https://github.com/ahmad1bakran",
   ],
-  knowsAbout: ["React.js", "Next.js", "React Native", "TypeScript", "Tailwind CSS"],
+  knowsAbout: [
+    "React.js",
+    "Next.js",
+    "React Native",
+    "TypeScript",
+    "Tailwind CSS",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Hama",
@@ -82,14 +90,36 @@ const jsonLd = {
   },
 };
 
+function getFaviconPath(path: string) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return base ? `${base.replace(/\/$/, "")}${normalized}` : normalized;
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const faviconLight = getFaviconPath("/images/logo2.png");
+  const faviconDark = getFaviconPath("/images/logo2.png");
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        {/* Light mode tab icon */}
+        <link
+          rel="icon"
+          href={faviconLight}
+          media="(prefers-color-scheme: light)"
+        />
+        {/* Dark mode tab icon */}
+        <link
+          rel="icon"
+          href={faviconDark}
+          media="(prefers-color-scheme: dark)"
+        />
+        {/* Fallback for browsers that don't support media on icon */}
+        <link rel="icon" href={faviconLight} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

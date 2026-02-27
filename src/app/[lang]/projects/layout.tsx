@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 
+const LANGUAGES = ["en", "ar"] as const;
+
+export function generateStaticParams() {
+  return LANGUAGES.map((lang) => ({ lang }));
+}
+
 export const metadata: Metadata = {
   title: "Featured Projects",
   description:

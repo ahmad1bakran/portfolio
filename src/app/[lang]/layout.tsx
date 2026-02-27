@@ -5,6 +5,10 @@ import type { Language } from "../lib/data";
 
 const VALID_LANGS: Language[] = ["en", "ar"];
 
+export function generateStaticParams() {
+  return VALID_LANGS.map((lang) => ({ lang }));
+}
+
 export default async function LangLayout({
   children,
   params,
