@@ -164,7 +164,7 @@ export const portfolioData = {
           image: "/projects/medical-equipment.jpg",
         },
         {
-          title: "Landing Page Template",
+          title: "Landisng Page Template",
           desc: "A modern, responsive landing page template with clean sections, clear CTAs, and easy customization. Built for fast load times and conversion-focused design.",
           tags: ["HTML5", "CSS", "JS"],
           image: "/projects/landing-page-template.png",
@@ -320,7 +320,7 @@ export const portfolioData = {
           title: "تطبيق لمركز تعليمي",
           desc: "تطبيق موبايل مخصص لمركز تعليمي لإدارة الموارد التعليمية وجداول الطلاب.",
           tags: ["React Native", "Expo", "TypeScript"],
-          image: "/projects/educational-center-app5.png",
+          image: "/projects/educational-center-app5.jpg",
         },
         {
           title:

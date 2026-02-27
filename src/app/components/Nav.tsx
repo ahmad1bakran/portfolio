@@ -12,7 +12,7 @@ import { getPublicUrl } from "../lib/utils";
 
 const LOGO_SRC = "/images/logo2.png";
 
-function NavLogo() {
+export function NavLogo() {
   const [failed, setFailed] = useState(false);
   if (failed) {
     return <Code2 className="w-6 h-6 text-gray-400 shrink-0" aria-hidden />;
@@ -33,7 +33,7 @@ export default function Nav() {
   const { lang, toggleLang, dir } = useLanguage();
   const pathname = usePathname();
   const t = portfolioData[lang];
-  const isProjectsPage = pathname === "/projects";
+  const isProjectsPage = pathname.includes("/projects");
 
   const [activeSection, setActiveSection] = useState(
     isProjectsPage ? "projects" : "hero",
@@ -88,7 +88,7 @@ export default function Nav() {
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4">
         {isProjectsPage ? (
           <Link
-            href="/"
+            href={`/${lang}`}
             className="flex items-center gap-2 text-gray-100 font-semibold tracking-tight hover:opacity-80 transition-opacity shrink-0"
           >
             <NavLogo />
@@ -117,7 +117,7 @@ export default function Nav() {
               return (
                 <Link
                   key={key}
-                  href="/projects"
+                  href={`/${lang}/projects`}
                   className={`px-4 py-2 text-sm font-medium rounded-full transition-colors shrink-0 ${
                     isActive
                       ? "text-gray-100 bg-white/10"
@@ -132,7 +132,7 @@ export default function Nav() {
               return (
                 <Link
                   key={key}
-                  href={`/#${key}`}
+                  href={`/${lang}#${key}`}
                   className={`px-4 py-2 text-sm font-medium rounded-full transition-colors shrink-0 ${
                     isActive
                       ? "text-gray-100 bg-white/10"

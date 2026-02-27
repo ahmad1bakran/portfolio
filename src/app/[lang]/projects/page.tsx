@@ -1,14 +1,14 @@
 "use client";
 
-import { useLanguage } from "../components/LanguageContext";
-import { portfolioData } from "../lib/data";
-import { getPublicUrl } from "../lib/utils";
+import { useLanguage } from "../../components/LanguageContext";
+import { portfolioData } from "../../lib/data";
+import { getPublicUrl } from "../../lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Globe } from "lucide-react";
 import { useState } from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import Nav from "../../components/Nav";
+import Footer from "../../components/Footer";
 
 const scrollReveal = {
   hidden: { opacity: 0, y: 24 },
@@ -56,7 +56,6 @@ export default function ProjectsPage() {
       <Nav />
 
       <main className="relative pt-14 sm:pt-16">
-        {/* Page title */}
         <section className="py-20 sm:py-24 px-6 sm:px-8 lg:px-12">
           <div className="max-w-6xl mx-auto w-full">
             <motion.div
@@ -74,7 +73,6 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* Full-width project blocks, alternating layout */}
         <div className="space-y-0">
           {t.projects.items.map((project, idx) => {
             const isAlternate = idx % 2 === 1;
@@ -117,10 +115,7 @@ export default function ProjectsPage() {
                 >
                   <div className="relative aspect-4/3 rounded-3xl overflow-hidden bg-white/3 border border-white/6">
                     {project.image ? (
-                      <ProjectImage
-                        src={getPublicUrl(project.image)}
-                        alt={project.title}
-                      />
+                      <ProjectImage src={project.image} alt={project.title} />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
                         <Globe

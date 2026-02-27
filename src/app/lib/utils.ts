@@ -4,7 +4,7 @@
  */
 export function getPublicUrl(path: string): string {
   if (!path) return path;
-  const base = process.env.NEXT_PUBLIC_BASE_PATH || "portfolio";
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
   if (!base) return path;
   const normalized = path.startsWith("/") ? path : `/${path}`;
   const baseTrimmed = base.endsWith("/") ? base.slice(0, -1) : base;

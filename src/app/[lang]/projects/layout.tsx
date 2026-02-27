@@ -14,9 +14,6 @@ export const metadata: Metadata = {
     description:
       "Explore web and mobile projects by Ahmad Bakran — Next.js, React.js, React Native, and full-stack applications.",
   },
-  alternates: {
-    canonical: "/projects",
-  },
 };
 
 export default function ProjectsLayout({
