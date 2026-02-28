@@ -1,6 +1,6 @@
 import "../globals.css";
-import { LanguageProvider } from "./components/LanguageContext";
 import type { Metadata } from "next";
+import NavigationProgress from "./components/NavigationProgress";
 
 const siteName = "Ahmad Bakran";
 const role = "Frontend Web & Mobile Developer";
@@ -101,8 +101,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const faviconLight = getFaviconPath(".../images/logo2.png");
-  const faviconDark = getFaviconPath(".../images/logo2.png");
+  const faviconLight = "../images/logo2.webp";
+  const faviconDark = "../images/logo.webp";
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
@@ -126,6 +126,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-emerald-500/30 selection:text-white">
+        <NavigationProgress />
         {children}
       </body>
     </html>

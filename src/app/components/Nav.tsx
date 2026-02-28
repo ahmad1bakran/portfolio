@@ -8,9 +8,8 @@ import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { useCallback, useState, useEffect } from "react";
 import Image from "next/image";
-import { getPublicUrl } from "../lib/utils";
 
-const LOGO_SRC = "../images/logo2.png";
+const LOGO_SRC = "../images/logo2.webp";
 
 export function NavLogo() {
   const [failed, setFailed] = useState(false);
@@ -19,7 +18,7 @@ export function NavLogo() {
   }
   return (
     <Image
-      src={getPublicUrl(LOGO_SRC)}
+      src={LOGO_SRC}
       alt=""
       width={32}
       height={32}

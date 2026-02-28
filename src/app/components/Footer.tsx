@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto w-full text-center text-sm text-gray-500">
         <p className="flex items-center justify-center gap-2">
           <Image
-            src={"../images/logo2.png"}
+            src={"../images/logo2.webp"}
             alt=""
             width={32}
             height={32}
