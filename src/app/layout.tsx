@@ -71,7 +71,9 @@ const jsonLd = {
   name: "Ahmad Bakran",
   jobTitle: "Frontend Web & Mobile Developer",
   description: defaultDescription,
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ahmadbakran.dev",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://ahmad1bakran.github.io/portfolio",
   sameAs: [
     "https://linkedin.com/in/ahmad-bakran-80735b226",
     "https://github.com/ahmad1bakran",
@@ -102,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const faviconLight = "../images/logo2.webp";
-  const faviconDark = "../images/logo.webp";
+  const faviconDark = "../images/logo2.webp";
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
@@ -118,7 +120,7 @@ export default function RootLayout({
           href={faviconDark}
           media="(prefers-color-scheme: dark)"
         />
-        {/* Fallback for browsers that don't support media on icon */}
+        {/* Fallback for browsers  */}
         <link rel="icon" href={faviconLight} />
         <script
           type="application/ld+json"
