@@ -2,6 +2,7 @@
 
 import { useLanguage } from "../components/LanguageContext";
 import { portfolioData } from "../lib/data";
+import { getPublicUrl } from "../lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -134,8 +135,8 @@ export default function Home() {
               <ExternalLink className="w-3.5 h-3.5 opacity-60" aria-hidden />
             </a>
             <a
-              href="/cv.pdf"
-              download
+              href={getPublicUrl("/Ahmad-Bakran-CV.pdf")}
+              download="Ahmad-Bakran-CV.pdf"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-gray-300 font-medium hover:bg-white/5 hover:text-gray-100 transition-colors"
             >
               <Download size={18} aria-hidden />
@@ -281,7 +282,10 @@ export default function Home() {
                       key={itemIdx}
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-400 bg-white/4 border border-white/6"
                     >
-                      <SkillIcon name={item} className="w-4 h-4 shrink-0 text-gray-500" />
+                      <SkillIcon
+                        name={item}
+                        className="w-4 h-4 shrink-0 text-gray-500"
+                      />
                       {item}
                     </span>
                   ))}

@@ -2,20 +2,19 @@
 import { useLanguage } from "./app/components/LanguageContext";
 import { portfolioData } from "./app/lib/data";
 import { motion } from "framer-motion";
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Globe, 
-  Code2, 
-  Download,
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Globe,
+  Code2,
   MapPin,
   Phone,
   Award,
   GraduationCap,
   Briefcase,
   Sparkles,
-  ArrowDown
+  ArrowDown,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -26,14 +25,25 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "about", "skills", "experience", "achievements", "projects", "contact"];
+      const sections = [
+        "hero",
+        "about",
+        "skills",
+        "experience",
+        "achievements",
+        "projects",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -71,7 +81,9 @@ export default function Home() {
               {Object.entries(t.nav).map(([key, value]) => (
                 <button
                   key={key}
-                  onClick={() => scrollToSection(key === "about" ? "about" : key)}
+                  onClick={() =>
+                    scrollToSection(key === "about" ? "about" : key)
+                  }
                   className={`text-sm font-medium transition-colors ${
                     activeSection === key
                       ? "text-emerald-400"
@@ -93,7 +105,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center px-6 pt-24 pb-12 relative overflow-hidden">
+      <section
+        id="hero"
+        className="min-h-screen flex items-center justify-center px-6 pt-24 pb-12 relative overflow-hidden"
+      >
         {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -193,7 +208,12 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, repeat: Infinity, repeatType: "reverse", duration: 2 }}
+          transition={{
+            delay: 1,
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 2,
+          }}
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
           <button
@@ -236,11 +256,17 @@ export default function Home() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <GraduationCap className="text-emerald-400 w-8 h-8" />
-                <h3 className="text-2xl font-bold">{t.about.education.title}</h3>
+                <h3 className="text-2xl font-bold">
+                  {t.about.education.title}
+                </h3>
               </div>
               <div className="space-y-2">
-                <p className="text-xl font-semibold text-gray-200">{t.about.education.degree}</p>
-                <p className="text-emerald-400">{t.about.education.university}</p>
+                <p className="text-xl font-semibold text-gray-200">
+                  {t.about.education.degree}
+                </p>
+                <p className="text-emerald-400">
+                  {t.about.education.university}
+                </p>
                 <p className="text-gray-400">{t.about.education.year}</p>
               </div>
             </motion.div>
@@ -270,7 +296,9 @@ export default function Home() {
                 transition={{ delay: idx * 0.1 }}
                 className="bg-gray-900/50 rounded-2xl p-8 border border-gray-800 hover:border-emerald-500/50 transition-colors"
               >
-                <h3 className="text-xl font-bold mb-6 text-emerald-400">{category.title}</h3>
+                <h3 className="text-xl font-bold mb-6 text-emerald-400">
+                  {category.title}
+                </h3>
                 <div className="flex flex-wrap gap-3">
                   {category.items.map((item, itemIdx) => (
                     <span
@@ -301,7 +329,9 @@ export default function Home() {
             {t.experience.title}
           </motion.h2>
           <div className="space-y-8 relative">
-            <div className={`absolute ${dir === "ltr" ? "left-8" : "right-8"} top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 to-cyan-500`}></div>
+            <div
+              className={`absolute ${dir === "ltr" ? "left-8" : "right-8"} top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 to-cyan-500`}
+            ></div>
             {t.experience.items.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -311,10 +341,16 @@ export default function Home() {
                 transition={{ delay: idx * 0.1 }}
                 className={`relative ${dir === "ltr" ? "ml-16" : "mr-16"}`}
               >
-                <div className={`absolute ${dir === "ltr" ? "-left-[57px]" : "-right-[57px]"} top-2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-gray-950`}></div>
+                <div
+                  className={`absolute ${dir === "ltr" ? "-left-[57px]" : "-right-[57px]"} top-2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-gray-950`}
+                ></div>
                 <div className="bg-gray-900/50 rounded-2xl p-8 border border-gray-800 hover:border-emerald-500/50 transition-colors">
-                  <h3 className="text-2xl font-bold text-gray-100 mb-2">{item.role}</h3>
-                  <p className="text-emerald-400 font-mono text-sm mb-4">{item.date}</p>
+                  <h3 className="text-2xl font-bold text-gray-100 mb-2">
+                    {item.role}
+                  </h3>
+                  <p className="text-emerald-400 font-mono text-sm mb-4">
+                    {item.date}
+                  </p>
                   <p className="text-gray-300 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
@@ -345,8 +381,12 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="bg-gray-900/50 rounded-2xl p-8 border border-gray-800 hover:border-cyan-500/50 transition-colors"
               >
-                <h3 className="text-xl font-bold text-cyan-400 mb-4">{item.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-bold text-cyan-400 mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -356,7 +396,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="bg-gray-900/50 rounded-2xl p-8 border border-gray-800"
           >
-            <h3 className="text-2xl font-bold mb-6 text-emerald-400">{t.achievements.certifications.title}</h3>
+            <h3 className="text-2xl font-bold mb-6 text-emerald-400">
+              {t.achievements.certifications.title}
+            </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {t.achievements.certifications.items.map((cert, idx) => (
                 <div
@@ -423,7 +465,10 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 bg-gradient-to-br from-gray-900/50 to-gray-950">
+      <section
+        id="contact"
+        className="py-24 px-6 bg-gradient-to-br from-gray-900/50 to-gray-950"
+      >
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -491,7 +536,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-gray-800/50">
         <div className="max-w-7xl mx-auto text-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} {t.hero.name}. {lang === "en" ? "All rights reserved." : "جميع الحقوق محفوظة."}</p>
+          <p>
+            © {new Date().getFullYear()} {t.hero.name}.{" "}
+            {lang === "en" ? "All rights reserved." : "جميع الحقوق محفوظة."}
+          </p>
         </div>
       </footer>
     </div>

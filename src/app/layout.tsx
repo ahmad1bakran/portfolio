@@ -23,7 +23,7 @@ const keywords = [
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://ahmadbakran.dev",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://ahmadbakran.online",
   ),
   title: {
     default: `${siteName} | ${role}`,
@@ -71,9 +71,7 @@ const jsonLd = {
   name: "Ahmad Bakran",
   jobTitle: "Frontend Web & Mobile Developer",
   description: defaultDescription,
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://ahmad1bakran.github.io/portfolio",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ahmadbakran.online",
   sameAs: [
     "https://linkedin.com/in/ahmad-bakran-80735b226",
     "https://github.com/ahmad1bakran",
@@ -92,11 +90,11 @@ const jsonLd = {
   },
 };
 
-function getFaviconPath(path: string) {
-  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  return base ? `${base.replace(/\/$/, "")}${normalized}` : normalized;
-}
+// function getFaviconPath(path: string) {
+//   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+//   const normalized = path.startsWith("/") ? path : `/${path}`;
+//   return base ? `${base.replace(/\/$/, "")}${normalized}` : normalized;
+// }
 
 export default function RootLayout({
   children,
