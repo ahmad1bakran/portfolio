@@ -54,9 +54,13 @@ export const portfolioData = {
             "SASS",
           ],
         },
+        backend: {
+          title: "Backend Development",
+          items: ["Node.js", "Express", "MySQL", "MongoDB", "REST APIs"],
+        },
         design: {
           title: "Design & Tools",
-          items: ["Figma", "Git & GitHub", "REST APIs", "Responsive Design"],
+          items: ["Figma", "Git & GitHub", "Responsive Design"],
         },
         languages: {
           title: "Languages",
@@ -68,9 +72,19 @@ export const portfolioData = {
       title: "Work Experience",
       items: [
         {
+          role: "Computer Science Instructor, Elite Class Kw",
+          date: "May 2026 – Present",
+          desc: "Delivering interactive online lectures and technical training sessions to students and professionals. Conducting both one-on-one and group sessions tailored to various learning levels in programming and computer science.",
+        },
+        {
           role: "College Lecturer",
           date: "Oct 2025 – Present",
           desc: "Teaching foundational and advanced topics in computer science and programming. Supporting students with practical labs and real-world development concepts.",
+        },
+        {
+          role: "Frontend Web developer, Connect Digital Agency",
+          date: "May 2025 – Present",
+          desc: "Built responsive React.js and Next.js web applications from complex UI/UX designs. Optimized state management and integrated RESTful APIs for seamless performance.",
         },
         {
           role: "Web & Mobile Applications Developer",
@@ -231,6 +245,10 @@ export const portfolioData = {
             "SASS",
           ],
         },
+        backend: {
+          title: "تطوير الواجهات الخلفية",
+          items: ["Node.js", "Express", "MySQL", "MongoDB"],
+        },
         design: {
           title: "التصميم والأدوات",
           items: ["Figma", "Git & GitHub", "REST APIs", "التصميم المتجاوب"],
@@ -245,9 +263,19 @@ export const portfolioData = {
       title: "الخبرات العملية",
       items: [
         {
+          role: "مدرس علوم حاسوب، Elite Class Kw",
+          date: "مايو 2026 – الحاضر",
+          desc: "تقديم محاضرات تفاعلية عبر الإنترنت وجلسات تدريب تقنية للطلاب والمحترفين. إجراء جلسات فردية وجماعية مصممة لتناسب مستويات التعلم المختلفة في البرمجة وعلوم الحاسوب.",
+        },
+        {
           role: "محاضر جامعي",
           date: "أكتوبر 2025 – الحاضر",
           desc: "تدريس المواضيع الأساسية والمتقدمة في علوم الحاسوب والبرمجة. دعم الطلاب في المخابر العملية ومفاهيم التطوير الواقعية.",
+        },
+        {
+          role: "مطور واجهات أمامية، Connect Digital Agency",
+          date: "مايو 2025 – الحاضر",
+          desc: "بناء تطبيقات ويب متجاوبة باستخدام React.js و Next.js من تصميمات UI/UX معقدة. تحسين إدارة الحالة ودمج RESTful APIs لأداء سلس.",
         },
         {
           role: "مطور تطبيقات ويب وموبايل",
