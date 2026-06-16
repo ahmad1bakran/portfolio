@@ -8,9 +8,13 @@ const defaultDescription =
   "Portfolio of Ahmad Bakran — Frontend web and mobile developer specializing in React.js, Next.js, and React Native. Building scalable, user-friendly web and mobile applications.";
 const keywords = [
   "Ahmad Bakran",
-  "Frontend Developer",
+  "Full Stack Developer",
   "Web Developer",
   "Mobile Developer",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "GraphQL",
   "React.js",
   "Next.js",
   "React Native",
@@ -69,7 +73,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Ahmad Bakran",
-  jobTitle: "Frontend Web & Mobile Developer",
+  jobTitle: "Full Stack Web & Mobile Developer",
   description: defaultDescription,
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://ahmadbakran.online",
   sameAs: [
@@ -77,6 +81,10 @@ const jsonLd = {
     "https://github.com/ahmad1bakran",
   ],
   knowsAbout: [
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "GraphQL",
     "React.js",
     "Next.js",
     "React Native",

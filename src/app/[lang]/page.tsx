@@ -5,6 +5,7 @@ import { portfolioData } from "../lib/data";
 import { getPublicUrl } from "../lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Github,
   Linkedin,
@@ -360,26 +361,45 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {t.achievements.items.map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={scrollReveal}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportConfig}
-                transition={{ delay: idx * 0.1 }}
-                className="rounded-3xl p-8 lg:p-10 bg-white/3 border border-white/6"
-              >
-                <h3 className="text-lg font-semibold text-gray-200 mb-3 flex items-center gap-2">
-                  <Award className="w-5 h-5 text-cyan-400/80" aria-hidden />
-                  {item.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-3 gap-12 items-start mb-16">
+            <motion.div
+              variants={scrollReveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
+              className="lg:col-span-1 relative aspect-9/8 rounded-3xl overflow-hidden bg-white/3 border border-white/6 group"
+            >
+              <Image
+                src="../images/medal.webp"
+                alt="Ahmad Bakran with Medal"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
+
+            <div className="lg:col-span-2 grid sm:grid-cols-1 md:grid-cols-2 gap-8">
+              {t.achievements.items.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={scrollReveal}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportConfig}
+                  transition={{ delay: idx * 0.1 }}
+                  className="rounded-3xl p-8 lg:p-10 bg-white/3 border border-white/6 h-full"
+                >
+                  <h3 className="text-lg font-semibold text-gray-200 mb-3 flex items-center gap-2">
+                    <Award className="w-5 h-5 text-cyan-400/80" aria-hidden />
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm sm:text-base">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <motion.div

@@ -4,7 +4,7 @@ import { useLanguage } from "../../components/LanguageContext";
 import { portfolioData } from "../../lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Globe } from "lucide-react";
+import { Globe, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
@@ -94,6 +94,27 @@ export default function ProjectsPage() {
                   <p className="text-lg text-gray-500 leading-relaxed mb-6">
                     {project.desc}
                   </p>
+                  
+                  {project.link && (
+                    <motion.a
+                      href={
+                        project.link.startsWith("http")
+                          ? project.link
+                          : `https://${project.link}`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-emerald-400 font-medium hover:bg-emerald-500/10 hover:border-emerald-500/30 transition-all mb-8 group"
+                      whileHover={{ x: 5 }}
+                    >
+                      <Globe className="w-4 h-4" />
+                      <span className="text-sm">
+                        {lang === "en" ? "Visit Project" : "زيارة المشروع"}
+                      </span>
+                      <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+                    </motion.a>
+                  )}
+
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
